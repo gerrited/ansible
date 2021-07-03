@@ -1,0 +1,14 @@
+## set up ssh user name and path to python3 ##
+[all:vars]
+ansible_user='pi'
+ansible_become=yes
+ansible_become_method=sudo
+ansible_python_interpreter='/usr/bin/env python3'
+
+[master]
+k3s-master-1 ansible_user=pi
+
+[nodes]
+k3s-node-1 ansible_user=pi
+k3s-node-2 ansible_user=pi
+k3s-node-3 ansible_user=pi
