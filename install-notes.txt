@@ -1,7 +1,15 @@
+# Install k3sup
+https://github.com/alexellis/k3sup#download-k3sup-tldr
+
+or use brew install k3sup
+
+# Install k3s
 k3sup install --ip 192.168.178.30 --user pi
+--k3s-version v1.22.4+k3s1
 
 k3sup join --user pi --ip 192.168.178.31 --server-user pi --server-ip 192.168.178.30
 k3sup join --user pi --ip 192.168.178.32 --server-user pi --server-ip 192.168.178.30
 k3sup join --user pi --ip 192.168.178.33 --server-user pi --server-ip 192.168.178.30
 
+# Install o11y
 helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack --namespace o11y
