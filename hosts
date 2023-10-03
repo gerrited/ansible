@@ -6,7 +6,7 @@ ansible_become_method=sudo
 ansible_python_interpreter='/usr/bin/env python3'
 
 [nodes]
-10.42.42.11 ansible_user=pi
-10.42.42.12 ansible_user=pi
-10.42.42.13 ansible_user=pi
-10.42.42.14 ansible_user=pi
+10.0.0.11 ansible_user=pi
+10.0.0.12 ansible_user=pi
+10.0.0.13 ansible_user=pi
+10.0.0.14 ansible_user=pi
