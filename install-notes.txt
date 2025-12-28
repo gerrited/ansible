@@ -1,13 +1,15 @@
 brew install --cask raspberry-pi-imager
 
-Raspberry Pi OS Lite (64 bit)
+* Raspberry Pi OS Lite (64 bit)
+* Set hostname (e.g. k3s-node-01)
+* Configure username and password
+* Set ssh public key 
 
-# find new device, probably 10.42.42.101
-nmap -sn 10.42.42.0/24
+# find new device, probably 10.0.0.101
+nmap -sn 10.0.0.0/24
 
 sudo nano /etc/dhcpcd.conf
 # interface, static ip_address, static routers, static domain_name_servers ausfüllen
-
 
 # Install k3sup
 https://github.com/alexellis/k3sup#download-k3sup-tldr
@@ -15,12 +17,11 @@ https://github.com/alexellis/k3sup#download-k3sup-tldr
 or use brew install k3sup
 
 # Install k3s
-k3sup install --ip 10.42.42.11 --user pi --cluster
+k3sup install --ip 10.0.0.11 --user pi --cluster
 
-
-k3sup join --user pi --ip 10.42.42.12 --server-user pi --server-ip 10.42.42.11 --server
-k3sup join --user pi --ip 10.42.42.13 --server-user pi --server-ip 10.42.42.11 --server
-k3sup join --user pi --ip 10.42.42.14 --server-user pi --server-ip 10.42.42.11
+k3sup join --user pi --ip 10.0.0.12 --server-user pi --server-ip 10.0.0.11 --server
+k3sup join --user pi --ip 10.0.0.13 --server-user pi --server-ip 10.0.0.11 --server
+k3sup join --user pi --ip 10.0.0.14 --server-user pi --server-ip 10.0.0.11
 
 # Install o11y
 helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack --namespace o11y
